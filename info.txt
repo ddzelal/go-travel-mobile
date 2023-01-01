@@ -1,0 +1,29 @@
+const axios = require("axios");
+
+const options = {
+  method: 'GET',
+  url: 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary',
+  params: {
+    bl_latitude: '43.1215350316235',
+    tr_latitude: '43.16293153798583',
+    bl_longitude: '20.48478133436635',
+    tr_longitude: '20.54606440660247',
+    restaurant_tagcategory_standalone: '10591',
+    restaurant_tagcategory: '10591',
+    limit: '30',
+    currency: 'USD',
+    open_now: 'false',
+    lunit: 'km',
+    lang: 'en_US'
+  },
+  headers: {
+    'X-RapidAPI-Key': '00fbe72b17msh11c09355a17bbe8p185ad3jsn190ba7812d5d',
+    'X-RapidAPI-Host': 'travel-advisor.p.rapidapi.com'
+  }
+};
+
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
